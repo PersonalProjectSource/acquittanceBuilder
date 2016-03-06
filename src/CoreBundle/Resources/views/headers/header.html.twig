@@ -1,0 +1,64 @@
+{% block header %}
+    <header>
+        <div class="header-bg">
+            <!--Top links-->
+            <div class="top-links">
+                <div class="row">
+                    <ul class=" block-grid">
+                        <li class="nine columns"><a href="#"><i class="icon-envelope"></i> &nbsp; info@sweetdate4u.com</a></li>
+                        <li class="three columns hide-for-small">
+                            Find us on: &nbsp;
+                            <a href="#" class="has-tip tip-bottom" data-width="210" title="Follow us on Twitter"><i class="icon-twitter"></i></a>
+                            <a href="#" class="has-tip tip-bottom" data-width="210" title="Find us on Facebook"><i class="icon-facebook"></i></a>
+                            <a href="#" class="has-tip tip-bottom" data-width="210" title="Find us on Google+"><i class="icon-google-plus"></i></a>
+                            <a href="#" class="has-tip tip-bottom" data-width="210" title="Pin us on Pinterest"><i class="icon-pinterest"></i></a>
+                            <a href="#" class="has-tip tip-bottom" data-width="210" title="Find us on LinkedIn"><i class="icon-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--end top-links-->
+            <div id="header">
+                <div class="row">
+                    <!-- Main Navigation -->
+                    <div class="five columns push-four">
+                        <div class="space-b-20 hide-for-small">&nbsp;</div>
+                        <nav class="top-bar">
+                            <ul>
+                                <!-- Toggle Button Mobile -->
+                                <li class="name">
+                                    <h1><a href="#">Menu</a></h1>
+                                </li>
+                                <li class="toggle-topbar"><a href="#"><i class="icon-reorder"></i></a></li>
+                                <!-- End Toggle Button Mobile -->
+                            </ul>
+
+                            <section><!-- Nav Section -->
+                                <ul class="left" >
+                                    <li><a href="#"><i class="icon-home"></i> Accueil</a></li>
+                                    <li class="has-dropdown">
+                                        <a href="#">Nos outils</a>
+                                    </li>
+                                </ul>
+                            </section><!-- End Nav Section -->
+                        </nav>
+                    </div>
+                    <!-- end Main Navigation -->
+                    <!-- Logo -->
+                    <div class="logo_length columns pull-five" style="width: 58%">
+                        <h1 id="logo">
+                            <a href="{#{ path('home') }}#}"><img src="{{ asset('bundles/core/assets/images/main_logo_ad.gif') }}" width="100" alt="Landing Page HTML Template"></a>
+                        </h1>
+                        <p><span style="color:white;font-size: 18px">Plateforme des propriétaires exigeants</span></p>
+                    </div>
+
+                    <div style="float: right">
+                        <form>
+                            <input type="text">
+                        </form></div>
+                    <!--end logo-->
+                </div><!--end row-->
+            </div><!--end #header-->
+        </div><!--end header-bg-->
+    </header>
+{% endblock header %}

@@ -1,0 +1,167 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+<!-- Page
+================================================ -->
+<!--Attributes-->
+<!--class = page wide-style / boxed-style-->
+<div class="inner page wide-style">
+    {% include 'CoreBundle:headers:header.html.twig' %}
+    <section>
+        <div id="breadcrumbs-wrapp">
+            <div class="row">
+                <div class="nine columns">
+                    <ul class="breadcrumbs hide-for-small">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="current"><a href="blog.html">Fil d'ariane</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="width: 595px;margin:auto;border-style:solid;border-width:1px;margin-top:10px;margin-bottom: 10px; padding:20px">
+        {{ form_start(form) }}
+            <input type="submit" value="Aperçu"/>
+            <h3 style="text-align: center">Quittance de loyer</h3>
+            <p>A l'attention de : <div><span>{{ form_widget(form.nomLocataire) }}</span> residant à <span> {{ form_widget(form.adresseLocataire) }}</span></div></p>
+            <p>Délivré par : <div><span>{{ form_widget(form.nomProprietaire) }}</span> résidant à <span>{{ form_widget(form.adresseProprietaire) }}</span></div></p>
+            <p>
+                Déclare avoir recu le paiement du loyer du bien situé à l'adresse <span>{{ form_widget(form.adresseBien) }}</span> pour la période du <span> {{ form_widget(form.debutPeriode) }}</span>
+                au <span>{{ form_widget(form.finPeriode) }}</span> pour une montant de <span> {{ form_widget(form.montantLoyer) }} Euros</span>(<span> {{ form_widget(form.montantLoyerLettre) }} Euros</span>)
+                correspondant aux montants suivants :
+            </p>
+            <p style="text-align: center">
+            <table style="margin:auto; width: 70%">
+                <th>Loyer hors charge</th>
+                <th>Montants</th>
+                <tr>
+                    <td>Loyer hors-charges</td>
+                    <td>{{ form_widget(form.montantHorsCharge) }}</td>
+                </tr>
+                <tr>
+                    <td>Provision sur charges</td>
+                    <td>{{ form_widget(form.montantCharges) }}</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>{{ form_widget(form.total) }}</td>
+                </tr>
+            </table>
+            </p>
+            <p>
+                Paiement recu le : <span> {{ form_widget(form.datePaiement) }} </span> par <span> {{ form_widget(form.modePaiement) }} </span>
+            </p>
+            {#<p>{{ paragraphePaiement }}</p>#}
+            <p>paragraphePaiement </p>
+            <p>
+                Fait à <span>{{ form_widget(form.villeEdition) }}</span> le <span>{{ form_widget(form.dateCreation) }} </span>
+            </p>
+            <p style="margin-bottom: 100px">Signature</p>
+        <p>{{ csrf_token('authenticate') }}</p>
+        {{ form_end(form) }}
+    </section>
+    {% include 'CoreBundle:footers:footer.html.twig' %}
+    <div id="login_panel" class="reveal-modal">
+        <div class="row">
+            <div class="twelve columns">
+                <h5 class="pink-text"><i class="icon-user icon-large"></i> SIGN IN YOUR ACCOUNT <span class="subheader right small-link"><a href="#" data-reveal-id="register_panel" class="radius secondary small button">CREATE NEW ACCOUNT</a></span></h5>
+            </div>
+            <form id="login_form" name="login_form" method="post" class="clearfix">
+                <div class="six columns">
+                    <input type="text" id="username" name="username" class="inputbox" placeholder="Username" required>
+                </div>
+                <div class="six columns">
+                    <input type="password" id="password" name="password" class="inputbox" placeholder="Password" required>
+                </div>
+                <p class="twelve columns">
+                    <small><i class="icon-lock"></i> Your <a href="#">privacy</a> is important to us and we will never rent or sell your information.</small>
+                </p>
+                <div class="twelve columns">
+                    <button type="submit" id="login" name="submit" class="radius secondary button"><i class="icon-unlock"></i> &nbsp;LOG IN</button> &nbsp; <a href="#" class="radius button facebook"><i class="icon-facebook-sign"></i> &nbsp;LOG IN WITH Facebook</a>
+                </div>
+            </form>
+            <div class="twelve columns"><hr>
+                <ul class="inline-list">
+                    <li><small><a href="#" data-reveal-id="forgot_panel">FORGOT YOUR USERNAME?</a></small></li>
+                    <li><small><a href="#" data-reveal-id="forgot_panel">FORGOT YOUR PASSWORD?</a></small></li>
+                </ul>
+            </div>
+        </div>
+        <a href="#" class="close-reveal-modal">×</a>
+    </div>
+    <div id="register_panel" class="reveal-modal">
+        <div class="row">
+            <div class="twelve columns">
+                <h5 class="pink-text"><i class="icon-magic icon-large"></i> CREATE ACCOUNT <span class="subheader right small-link"><a href="#" data-reveal-id="login_panel" class="radius secondary small button">ALREADY HAVE AN ACCOUNT?</a></span></h5>
+            </div>
+            <form id="register_form" name="register_form" method="post">
+                <div class="six columns">
+                    <input type="text" id="reg-username" name="username" class="inputbox" placeholder="Username">
+                </div>
+                <div class="six columns">
+                    <input type="text" id="fullname" name="fullname" class="inputbox" placeholder="Your full name">
+                </div>
+                <div class="twelve columns">
+                    <input type="text" id="reg-email" name="email" class="inputbox" placeholder="Your email">
+                </div>
+                <div class="six columns">
+                    <input type="password" id="reg-password" name="password" class="inputbox" placeholder="Desired password">
+                </div>
+                <div class="six columns">
+                    <input type="password" id="confirm_password" name="confirm_password" class="inputbox" placeholder="Confirm password">
+                </div>
+                <div class="twelve columns">
+                    <p><small>Check our <a href="#"><strong>terms and conditions</strong></a> before sign up. If you familiar with our terms, go ahead click CREATE MY ACCOUNT button.</small></p>
+                    <button type="submit" id="signup" name="submit" class="radius alert button"><i class="icon-heart"></i> &nbsp;CREATE MY ACCOUNT</button>
+                </div>
+            </form>
+        </div><!--end row-->
+        <a href="#" class="close-reveal-modal">×</a>
+    </div>
+    <div id="forgot_panel" class="reveal-modal">
+        <div class="row">
+            <div class="twelve columns">
+                <h5 class="pink-text"><i class="icon-lightbulb icon-large"></i> FORGOT YOUR DETAILS?</h5>
+            </div>
+            <form id="forgot_form" name="forgot_form" method="post" class="clearfix">
+                <div class="twelve columns">
+                    <input type="text" id="forgot-email" name="email" class="inputbox" placeholder="Email Address">
+                    <button type="submit" id="recover" name="submit" class="radius secondary button">SEND MY DETAILS! &nbsp;<i class="icon-envelope"></i></button>
+                </div>
+            </form>
+            <div class="twelve columns"><hr>
+                <small><a href="#" data-reveal-id="login_panel" class="radius secondary label">AAH, WAIT, I REMEMBER NOW!</a></small>
+            </div>
+        </div><!--end row-->
+        <a href="#" class="close-reveal-modal">×</a>
+    </div>
+    <p id="btnGoUp">Go up</p>
+</div>
+
+<script src="{{ asset('bundles/core/assets/scripts/jquery.js') }}"></script>
+<script src="{{ asset('bundles/core/assets/scripts/foundation.min.js') }}"></script>
+<script src="{{ asset('bundles/core/assets/scripts/plugins/carouFredSel/helper-plugins/jquery.mousewheel.min.js') }}"></script>
+<script src="{{ asset('bundles/core/assets/scripts/plugins/carouFredSel/helper-plugins/jquery.touchSwipe.min.js') }}"></script>
+<script src="{{ asset('bundles/core/assets/scripts/plugins/carouFredSel/helper-plugins/jquery.transit.min.js') }}"></script>
+<script src="{{ asset('bundles/core/assets/scripts/plugins/carouFredSel/helper-plugins/jquery.ba-throttle-debounce.min.js') }}"></script>
+<script src="{{ asset('bundles/core/assets/scripts/plugins/retina/retina.js') }}"></script>
+<script src="{{ asset('bundles/core/assets/scripts/plugins/knob/jquery.knob.js') }}"></script>
+<script src="{{ asset('bundles/core/assets/scripts/plugins/fittext/jquery.fittext.js') }}"></script>
+<script src="{{ asset('bundles/core/assets/scripts/plugins/quovolver/jquery.quovolver.js') }}"></script>
+<script src="{{ asset('bundles/core/assets/scripts/plugins/prettyPhoto/jquery.prettyPhoto.js') }}"></script>
+{#<script src="{{ asset('bundles/core/bower_components/angular/angular.js') }}"></script>#}
+{#<script src="{{ asset('bundles/core/bower_components/angular-route/angular-route.min.js') }}"></script>#}
+{#<script src="{{ asset('bundles/core/js/app.js') }}"></script>#}
+{#<script src="{{ asset('bundles/core/js/controllers.js') }}"></script>#}
+{#<script src="{{ asset('bundles/core/js/services.js') }}"></script>#}
+
+<!-- Custom JS effects, tweaks and inits -->
+<!--<script type="text/javascript" src="assets/scripts/app.js"></script> -->
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<!--<script>-->
+<!--var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];-->
+<!--(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;-->
+<!--g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";-->
+<!--s.parentNode.insertBefore(g,s)}(document,"script"));-->
+<!--</script>-->
+{% endblock body %}

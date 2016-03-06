@@ -1,0 +1,20 @@
+{
+  "name": "Quittance_maker",
+  "authors": [
+    "Laurent BRAU <laurent.brau@gmail.com>"
+  ],
+  "description": "Owner platform",
+  "main": "angular",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

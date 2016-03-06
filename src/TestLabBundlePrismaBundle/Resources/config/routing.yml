@@ -1,0 +1,3 @@
+test_lab_bundle_prisma_homepage:
+    path:     /coucou/
+    defaults: { _controller: TestLabBundlePrismaBundle:Default:index }

@@ -1,0 +1,4 @@
+services:
+#    test_lab_bundle_prisma.example:
+#        class: TestLabBundlePrismaBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
